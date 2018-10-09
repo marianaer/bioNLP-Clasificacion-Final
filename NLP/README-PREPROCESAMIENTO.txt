@@ -16,10 +16,10 @@ cut -f3,4 sentences_Other.txt
 #script de python RefFilter.py en la carpeta Pipeline_prep. Se utilizó para limpiar ambos archivos
 
 
-#Unir ambos archivos pre-procesados en un solo documento en tepeu
+#Unir ambos archivos pre-procesados en un solo documento en tepeu /export/storage/users/mrivero/Bioinfo_DEWY/Bioinformatica/BioNLP/RI_O_txt
 cat RI_2.0.txt Other2.0.txt > RI_Other_Cat.txt
 
-#Lematización y POS tag de RI_Other_Cat.txt
+#Lematización y POS tag de RI_Other_Cat.txt en tepeu /export/storage/users/mrivero/Bioinfo_DEWY/Bioinformatica/BioNLP/RI_O_conll/RI_Other_DEWY_1.0.conll
 ./corenlp.sh -annotators tokenize,ssplit,pos,lemma,ner,parse,depparse -outputFormat conll -file /home/mescobar/RI_Other_Cat.txt -outputDirectory /home/mescobar/RI_Other_Cat.conll
 
 
@@ -35,6 +35,8 @@ cat RI_2.0.txt Other2.0.txt > RI_Other_Cat.txt
 #Esto se hizo con head y tail.
 #RI_Other_1W.txt, RI_Other_2Y.txt y RI_Other_3E.txt. Todos disponibles en /export/storage/users/mrivero/Bioinfo_DEWY/Bioinformatica/BioNLP/RI_O_conll
 
+en tepeu: /export/storage/users/mrivero/Bioinfo_DEWY/Bioinformatica/BioNLP/RI_O_conll/RI_Other_DEWY_1.0.conll
+
 cat RI_Other_1W.txt.conll RI_Other-2.5Y.txt.conll RI_Other_3E.txt.conll > RI_Other_DEWY.conll
 
 
@@ -47,8 +49,7 @@ cut -f3,4 RI_Other_DEWY_1.0.conll > RI_O_lemma_POS.conll
 #Se obtuvo entonces el documento con el nombre Lemma_POS_Line_E1.txt, frases transformadas a lemma y pos.
 #Agregar etiquetas informativas (TF) cuando existiera uno en la frase. Se extrajeron los TF de http://regulondb.ccg.unam.mx/menu/download/datasets/files/network_tf_gene.txt
 #y se buscaron en las frases transformadas. Para esto se utilizó el script de python TFtaggingLemmaPos.py.
-#Para Lemma_POS_Line_E1.txt se obtuvo Lemma_POS_Line_TF 
-_E1.0.txt
+#Para Lemma_POS_Line_E1.txt se obtuvo Lemma_POS_Line_TF_E1.0.txt en Pipeline_prep/LemmaPOS
 
 #Repetir lo mismo con otra combinación, como lemma 
 #Obtener las columnas de lemma 
@@ -57,7 +58,7 @@ cut -f3 RI_Other_DEWY_1.0.conll > RI_O_Lemma.conll
 #script de python LemmaLine.py disponible en la carpeta /Pipeline_prep/Lemma
 #Se obtuvo entonces el documento con el nombre Lemma_Line_E1.txt, las frases transformadas a forma de lemma.
 #Agregar etiquetas informativas (TF) cuando existiera uno en la frase. Se extrajeron los TF de http://regulondb.ccg.unam.mx/menu/download/datasets/files/network_tf_gene.txt
-#y se buscaron en las frases transformadas. Para esto se utilizó el script de python TFtagging.py y se obtuvo el documento Lemma_TF_E1.0.txt.
+#y se buscaron en las frases transformadas. Para esto se utilizó el script de python TFtagging.py y se obtuvo el documento Lemma_TF_E1.0.txt en Pipeline_prep/Lemma
 
 
 #Dividir los Datasets de Lemma_POS y de Lemma en training y test. Para esto se utilizó el script de python TrainingTestLemmaPOS.py y TrainingTestLemma.py respectivamente.(Presentes en las carpetas de LemmaPOS y Lemma.).
