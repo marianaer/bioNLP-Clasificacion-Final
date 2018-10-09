@@ -1,4 +1,5 @@
-#Preprocesamiento de RI_RIGC
+#PREPROCESAMIENTO Y DIVISIÓN DE DATASET
+#PASOS SEGUIDOS.
 
 #Parte de Carlos:
 #2. Valor 1 punto. Pipeline de pre procesamiento: mostrar diagrama del pipeline para pre procesar el data set de frases para tenerlo listo para vectorizar
